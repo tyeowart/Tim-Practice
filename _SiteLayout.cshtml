@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>@Page.Title - My ASP.NET Web Page</title>
+        <link href="~/Content/themes/base/jquery.ui.all.css" rel="stylesheet" type="text/css" />
+        <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <script src="~/Scripts/jquery-1.6.2.min.js"></script>
+        <script src="~/Scripts/jquery-ui-1.8.11.js"></script>
+        <script src="~/Scripts/modernizr-2.0.6-development-only.js"></script>
+        <meta name="viewport" content="width=device-width" />
+        <meta name="author" content="@Page.Author">
+        <meta name="description" content="@Page.SalesPitch">
+        <meta name="keywords" content="@Page.CommaSeperatedKeyWords">
+
+    </head>
+    <body style="background-color: red">
+        <header style="height:80px;">
+                <div class="float-left">
+                    <p class="site-title"><a href="~/">your logo here.</a></p>
+                </div>
+                <div class="float-right">
+                    <section id="login">
+                        @if (WebSecurity.IsAuthenticated) {
+                            <p>
+                                Hello, <a class="username" href="~/Account/ChangePassword" title="Change password">@WebSecurity.CurrentUserName</a>!
+                                <a href="~/Account/Logout">Logout</a>
+                            </p>
+                        } else {
+                            <ul>
+                                <li><a href="~/Account/Register">Register</a></li>
+                                <li><a href="~/Account/Login">Log in</a></li>
+                            </ul>
+                        }
+                    </section>
+                    <nav>
+                        <ul id="menu">
+                            <li><a href="~/">Home</a></li>
+                            <li><a href="~/About">About</a></li>
+                            <li><a href="~/Contact">Contact</a></li>
+                        </ul>
+                    </nav>
+                </div>
+          
+        </header>
+        <div id="body" style="position: absolute; top: 85px; left: 0px; right: 0px; bottom: 0px;">
+            @RenderSection("featured", required: false)
+            <section class="main-content test clear-fix" style="position: absolute; top: 60px; bottom: 30px; left: 0px; right: 0px;">
+                @RenderBody()
+            </section>
+        </div>
+        <footer style="position: absolute; bottom: 0px; height:30px;">
+            <div class="content-wrapper">
+                <div class="float-left">
+                    <p>&copy; @DateTime.Now.Year - My ASP.NET Web Page</p>
+                </div>
+                <div class="float-right">
+                    <ul id="social">
+                        <li><a href="http://facebook.com" class="facebook">Facebook</a></li>
+                        <li><a href="http://twitter.com" class="twitter">Twitter</a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+        @RenderSection("Scripts", required: false)
+    </body>
+</html>

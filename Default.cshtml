@@ -1,0 +1,49 @@
+﻿@{
+    Layout = "~/_SiteLayout.cshtml";
+    Page.Title = "Feeds Page";
+    Page.Author = "Tim Yeowart";
+    Page.SalesPitch = "A nice site for setting up your feeds";
+    Page.CommaSeperatedKeyWords = "C#,Javascript,Stuff";
+}
+
+@section featured {
+
+    <section class="content-fullscreen" style="height: 50px;" >
+            <hgroup class="title">
+                <h1>@Page.Title.</h1>
+                <h2>Collections of new stories</h2>
+            </hgroup>
+    </section>
+
+}
+
+
+@*The list containing our catergories*@
+<section class="reader">
+<ul class="catergoryList">
+    <li><h3>Biology</h3></li>
+    <li><h3>Chemistry</h3></li>
+</ul>
+@*The list containing items belong to the currently selected list*@
+<ol class="catergoryItemList">
+    <li>
+        <article itemtype="http://schema.org/BlogPosting" itemscope >
+            <header>
+                <h5 itemprop="title">Title of the article</h5>
+            </header>
+            
+             <p itemprop="Blurb">Quick Blurb talking about the contents</p>
+            <footer><p><a itemprop="Source">Source  </a> <time item itemprop="datePublished" datetime="2012-10-09">|| 4 Days Ago</time></p> </footer>
+        </article>
+
+    </li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ol>
+    <article style="background-color: white; float: right; width: 60%; bottom: 0px; overflow: hidden;">
+    
+    </article>
+  
+        </div>
+</section>
